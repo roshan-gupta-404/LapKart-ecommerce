@@ -4,9 +4,9 @@ import bannerImg from './pckartBanner.jpg'
 function Banner() {
   return (
     <Container>
-        {/* <div className='my-4'>
+        <div className='my-4'>
             <img src={bannerImg}/>
-        </div> */}
+        </div>
     </Container>
   )
 }
