@@ -7,7 +7,6 @@ function List({cat , maxPrice, sort, toggleFilterBar}) {
     cat ? query = query + `&filters[categories][title][$eqi]=${cat}`:null
     maxPrice ? query = query + `&filters[price][$lte]=${maxPrice}`:null
     sort ? query = query + `&sort=price:${sort}`:null
-    console.log(query);
 
     const {data:products, loading , error} = useFetch(query)
 

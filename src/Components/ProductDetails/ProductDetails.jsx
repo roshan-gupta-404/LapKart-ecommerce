@@ -8,8 +8,6 @@ function ProductDetails() {
     const {slug} = useParams()
     const [productQuantity, setProductQuantity] = useState(1)
     const {data:product, loading, error } = useFetch(`/products?populate=*&filters[id]=${slug}`)
-    console.log(slug);
-    console.log(product);
     
     const onInc = ()=>{
         setProductQuantity(productQuantity + 1)

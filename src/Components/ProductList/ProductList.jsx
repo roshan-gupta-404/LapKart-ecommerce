@@ -55,7 +55,7 @@ function ProductList() {
                             <div className='flex flex-col pl-4'>
                                 <div>
                                     <input className='border border-black mr-2' type='number' name='category' min={0}
-                                        onChange={(e) => { (price = e.target.value); console.log(price) }}
+                                        onChange={(e) => { (price = e.target.value) }}
                                     />
                                     <button className='border border-blue-700 bg-blue-300'
                                         onClick={() => { setMaxPrice(price) }}

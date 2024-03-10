@@ -7,7 +7,6 @@ function Featured() {
     const featuredPC = useFetch('/products?populate=*&filters[categories][title][$eqi]=PC&filters[status][$eqi]=featured')
     const featuredLap = useFetch('/products?populate=*&filters[categories][title][$eqi]=Laptop&filters[status][$eqi]=featured')
     const featuredAcc = useFetch('/products?populate=*&filters[categories][title][$eqi]=Accessories&filters[status][$eqi]=featured')
-    console.log(featuredPC);
     
     return (
         <div id='featured' className='my-4'>
