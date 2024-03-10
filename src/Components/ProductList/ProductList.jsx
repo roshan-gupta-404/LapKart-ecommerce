@@ -23,7 +23,7 @@ function ProductList() {
         <>
             <Container>
                 <div className='flex'>
-                    <div className='bg-white h-full absolute -translate-x-full lg:translate-x-0 lg:static min-w-fit border-r-2 p-4 duration-300 '
+                    <div className='bg-white h-full absolute -translate-x-full lg:translate-x-0 lg:static min-w-fit  p-4 duration-300 '
                         ref={filter}
                     >
                         <div onClick={toggleFilterBar} className='lg:hidden w-fit px-4 text-white bg-blue-500'>{'<<'}</div>
