@@ -3,12 +3,17 @@ import { useParams } from 'react-router-dom'
 import QuantityButton from '../Buttons/QuantityButton'
 import Container from '../Container'
 import useFetch from '../../Hooks/useFetch'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../store/cartSlice'
+import useBharatFormat from '../../Hooks/useBharatFormat'
 
 function ProductDetails() {
     const {slug} = useParams()
     const [productQuantity, setProductQuantity] = useState(1)
     const {data:product, loading, error } = useFetch(`/products?populate=*&filters[id]=${slug}`)
-    
+    const dispatch = useDispatch()
+
+    const price = useBharatFormat((product[0]?.attributes?.price)?(product[0]?.attributes?.price):0)
     const onInc = ()=>{
         setProductQuantity(productQuantity + 1)
     }
@@ -16,7 +21,14 @@ function ProductDetails() {
         if((productQuantity) > 1)
         setProductQuantity(productQuantity - 1)
     }
-    const handleAddToCart = ()=>{}
+    const handleAddToCart = ()=>{
+        const quantity = Number(productQuantity)
+        const id = product[0].id
+        const title = product[0].attributes?.title
+        const price = product[0].attributes?.price
+        const imgUrl = product[0]?.attributes.imgUrl
+        dispatch(addToCart({quantity, id , title, price, imgUrl}))
+    }
   return (
     <Container>
                 {product?(
@@ -35,7 +47,7 @@ function ProductDetails() {
                         {product[0]?.attributes?.desc}
                         </h1>
                         <div className='text-2xl font-semibold my-4 px-8'>
-                         ₹ {product[0]?.attributes?.price} /-
+                        <sup>₹</sup>{price} /-
                         </div>
 
                         <QuantityButton productQuantity={productQuantity} onInc={onInc}  onDec = {onDec}/>

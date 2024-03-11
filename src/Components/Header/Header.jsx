@@ -1,9 +1,12 @@
 import React from 'react'
 import Container from '../Container'
 import { Link, NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 // import LogoutBtn from './LogoutBtn'
 
 function Header() {
+    const totalQuantity = useSelector((state)=>state.totalQuantity)
+    console.log(totalQuantity);
     const authStatus = false
     const navItems = [
         {
@@ -22,7 +25,7 @@ function Header() {
         //   active: !authStatus
         // },
         {
-          name: 'Cart',
+          name: `Cart ( ${totalQuantity} )`,
           slug: "/cart",
           active: !authStatus
         }
