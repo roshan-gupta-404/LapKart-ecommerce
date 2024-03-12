@@ -1,6 +1,5 @@
 function useBharatFormat(number) {
     try {
-        console.log(number);
         let digits = number.toString().split('');
         let result = '';
 

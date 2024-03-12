@@ -18,7 +18,6 @@ const cartSlice = createSlice({
                 state.products.push(action.payload)
             }
             state.totalQuantity+= action.payload.quantity
-            console.log(current(state));
         },
         removeFromCart:(state, action)=>{
             state.products = state.products.filter((item)=>{
@@ -28,7 +27,6 @@ const cartSlice = createSlice({
                }
                else return true
             })
-            console.log(current(state));
         },
         inccrementQuantity:(state, action)=>{
             const item = state.products.find((item)=>item.id===action.payload.id)
@@ -36,7 +34,6 @@ const cartSlice = createSlice({
                 item.quantity = (Number(item.quantity) + 1 )
                 state.totalQuantity++
             }
-            console.log(current(state));
         },
         decrementQuantity:(state, action)=>{
             const item = state.products.find((item)=>item.id===action.payload.id)
@@ -44,7 +41,6 @@ const cartSlice = createSlice({
                 item.quantity = (Number(item.quantity) - 1 )
                 state.totalQuantity--
             }
-            console.log(current(state));
         },
         emptyCart:(state)=>{
             state.products = []

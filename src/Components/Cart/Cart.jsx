@@ -9,7 +9,6 @@ import makeRequest from '../../makeRequest';
 
 function Cart() {
     const cart = useSelector((state) => state.products)
-    console.log(cart);
     const dispatch = useDispatch()
     let totalSum = 0;
     cart?.forEach(product => {
@@ -25,7 +24,6 @@ function Cart() {
             const res = await makeRequest.post("/orders", {
                 cart,
             })
-            console.log(res);
             await stripe.redirectToCheckout({
                 sessionId: res.data.stripeSession.id,
             })
