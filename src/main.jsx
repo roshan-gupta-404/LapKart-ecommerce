@@ -10,6 +10,7 @@ import Cart from './Components/Cart/Cart.jsx'
 import store, { persistor } from './store/store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
+import PaymentSuccess from './Components/PaymentSuccess/PaymentSuccess.jsx'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />,
+      },
+      {
+        path: '/payment-success',
+        element: <PaymentSuccess />,
       }
     ]
   }
