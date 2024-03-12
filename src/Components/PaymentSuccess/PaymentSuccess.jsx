@@ -12,7 +12,7 @@ function PaymentSuccess() {
         dispatch(emptyCart())
     }
   return (
-    <div><h1 className='text-3xl'>Thank You for purchasing with us. 😊😊</h1></div>
+    <div className='flex justify-center'><h1 className='text-3xl mt-8'>Thank You for purchasing from us. 😊😊</h1></div>
   )
 }
 

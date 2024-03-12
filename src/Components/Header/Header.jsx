@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 
 function Header() {
     const totalQuantity = useSelector((state)=>state.totalQuantity)
-    console.log(totalQuantity);
     const authStatus = false
     const navItems = [
         {
