@@ -30,7 +30,7 @@ function CartCard({ product }) {
             <div id='image' className='min-w-40 w-40 m-2'>
                 <div className='flex justify-center '><img className='border h-40 border-black' src={product?.imgUrl} /></div>
             </div>
-            <div id='product_details' className='sm:pl-8 pt-8 w-1/3'>
+            <div id='product_details' className='sm:pl-8 pt-8 sm:w-1/3'>
                 <h3 className='text-lg border-b-2 pb-2'>
                     {product?.title}
                 </h3>

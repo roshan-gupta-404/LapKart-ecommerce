@@ -45,7 +45,7 @@ function Cart() {
                     : <h1>No Items in Cart</h1>
                 }
 
-                <div className='w-2/12 text-center my-4'>
+                <div className='w-2/12 min-w-[100px] text-center my-4'>
                     <h3><sup>₹</sup>{totalSum}</h3>
                     <button className='w-full bg-yellow-400 rounded-md p-2 mt-2' disabled={!(cart.length)} onClick={handlePayment}>Ckeckout</button>
                     <button className='w-full bg-yellow-400 rounded-md p-2 mt-2' onClick={resetCart}>resetCart</button>

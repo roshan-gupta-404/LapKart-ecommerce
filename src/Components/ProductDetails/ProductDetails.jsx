@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import QuantityButton from '../Buttons/QuantityButton'
 import Container from '../Container'
@@ -12,6 +12,7 @@ function ProductDetails() {
     const [productQuantity, setProductQuantity] = useState(1)
     const {data:product, loading, error } = useFetch(`/products?populate=*&filters[id]=${slug}`)
     const dispatch = useDispatch()
+    const msgBox = useRef(null)
 
     const price = useBharatFormat((product[0]?.attributes?.price)?(product[0]?.attributes?.price):0)
     const onInc = ()=>{
@@ -28,11 +29,17 @@ function ProductDetails() {
         const price = product[0].attributes?.price
         const imgUrl = product[0]?.attributes.imgUrl
         dispatch(addToCart({quantity, id , title, price, imgUrl}))
+        msgBox.current.classList.toggle("hidden");
+        setTimeout(() => {
+            msgBox.current.classList.toggle("hidden");
+        }, 2000);
+
     }
   return (
     <Container>
                 {product?(
-                    <div className='md:flex my-8 mx-2 '>
+                    <div className='md:flex my-8 mx-2  '>
+                    <div className='z-10 hidden fixed top-28 right-10 bg-yellow-300 text-xl rounded-md px-2' ref={msgBox}> Product added to Cart </div>
                     <div id='image' className='md:w-1/2 lg:w-2/3 flex flex-col lg:flex-row md:mr-2'>
                         <div className=' lg:order-last lg:w-10/12'>
                         <img className='p-2 border max-h-[472px] border-black'  src={product[0]?.attributes.imgUrl} />
