@@ -54,7 +54,7 @@ function ProductDetails() {
 
                         <div className='my-4 px-8 flex justify-between gap-x-2'>
                             <button className='w-52 bg-yellow-400 p-2 text-xl rounded-md' onClick={handleAddToCart} >Add To Cart</button>
-                            <button className='w-52 bg-yellow-400 p-2 text-xl rounded-md'>Buy Now</button>
+                            {/* <button className='w-52 bg-yellow-400 p-2 text-xl rounded-md'>Buy Now</button> */}
                         </div>
                         <div className='flex flex-wrap px-8'>
                             <span className='border bg-teal-400 p-2 rounded-md mr-2 mb-2'>Seller: {product[0]?.attributes?.seller} </span>
